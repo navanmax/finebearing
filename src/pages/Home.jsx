@@ -19,6 +19,62 @@ const Home = () => {
           padding: 24px 0;
         }
 
+        /* --- Announcement Bar --- */
+        .announcement-bar {
+          width: 100%;
+          height: 40px;
+          background: linear-gradient(90deg, #1f2328 0%, #0d1117 100%);
+          border-bottom: 2px solid #e86e25; /* Matte orange border */
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          position: relative;
+          z-index: 100;
+        }
+
+        .ticker-track {
+          display: flex;
+          white-space: nowrap;
+          animation: scroll 40s linear infinite;
+          width: fit-content;
+        }
+
+        .announcement-bar:hover .ticker-track {
+          animation-play-state: paused;
+        }
+
+        .ticker-item {
+          display: flex;
+          align-items: center;
+          color: #ffffff;
+          font-size: 13.5px;
+          font-weight: 500;
+          letter-spacing: 0.8px;
+          padding: 0 40px;
+          text-transform: uppercase;
+        }
+
+        .ticker-item span {
+          margin: 0 15px;
+          color: #e86e25;
+          font-weight: 800;
+        }
+
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 768px) {
+          .ticker-item {
+            font-size: 12px;
+            padding: 0 20px;
+          }
+          .ticker-track {
+            animation-duration: 50s; /* Slower on mobile */
+          }
+        }
+
         /* --- Transparent Floating Header --- */
         .navbar-container {
           width: 100%;
@@ -27,7 +83,8 @@ const Home = () => {
           display: flex;
           justify-content: center;
           position: sticky;
-          top: 0;
+          top: 0; /* Stays below announcement bar if scrolling, but here sticky needs to account for top if needed. 
+                     For simplicity with standard sticky, it will scroll up until it hits the top. */
           z-index: 50;
           background: #ffffff;
           border-bottom: 1px solid #d0d7de;
@@ -371,6 +428,18 @@ const Home = () => {
           }
         }
       `}</style>
+
+      {/* Announcement Bar */}
+      <div className="announcement-bar">
+        <div className="ticker-track">
+          <div className="ticker-item">
+            Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
+          </div>
+          <div className="ticker-item">
+            Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
+          </div>
+        </div>
+      </div>
 
       {/* Top Navigation Bar */}
       <div className="navbar-container">
