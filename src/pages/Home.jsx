@@ -16,7 +16,7 @@ const Home = () => {
           max-width: 1536px;
           width: 94%;
           margin: 0 auto;
-          padding: 24px 0;
+          padding: 12px 0;
         }
 
         /* --- Announcement Bar (Light Theme - Content Ribbon) --- */
@@ -32,7 +32,7 @@ const Home = () => {
           position: relative;
           z-index: 10;
           grid-column: span 3; /* Spans full grid width after the 5 boxes */
-          margin-top: 24px;
+          margin-top: 12px;
           border-radius: 12px;
           box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
@@ -84,12 +84,11 @@ const Home = () => {
         .navbar-container {
           width: 100%;
           margin: 0;
-          padding: 12px 0;
+          padding: 8px 0;
           display: flex;
           justify-content: center;
           position: sticky;
-          top: 0; /* Stays below announcement bar if scrolling, but here sticky needs to account for top if needed. 
-                     For simplicity with standard sticky, it will scroll up until it hits the top. */
+          top: 0; 
           z-index: 50;
           background: #ffffff;
           border-bottom: 1px solid #d0d7de;
@@ -206,7 +205,7 @@ const Home = () => {
         .grid-layout {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
+          gap: 16px;
         }
 
         /* Universal Card Styles */
@@ -473,7 +472,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="content-wrapper" style={{ paddingTop: '32px' }}>
+      <div className="content-wrapper" style={{ paddingTop: '16px' }}>
 
         <main className="grid-layout">
 
