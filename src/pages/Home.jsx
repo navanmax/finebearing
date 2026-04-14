@@ -7,9 +7,9 @@ const Home = () => {
       <style>{`
         .app-container {
           min-height: 100vh;
-          background-color: #0d1117;
+          background-color: #f6f8fa; /* Light mode background */
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-          color: #e6edf3;
+          color: #1f2328; /* Dark text for light mode */
         }
         
         .content-wrapper {
@@ -30,7 +30,7 @@ const Home = () => {
           position: sticky;
           top: 0;
           z-index: 50;
-          background: linear-gradient(to bottom, rgba(13, 17, 23, 0.9) 0%, rgba(13, 17, 23, 0) 100%);
+          background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
         }
 
         .navbar-content {
@@ -107,62 +107,85 @@ const Home = () => {
         .nav-stretch-bar {
           display: flex;
           align-items: center;
-          background: rgba(255, 255, 255, 0.04);
-          backdrop-filter: blur(28px) saturate(120%);
-          -webkit-backdrop-filter: blur(28px) saturate(120%);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-top: 1px solid rgba(255,255,255,0.15);
-          border-bottom: 1px solid rgba(0,0,0,0.4);
+          /* Animated Aurora Background - subtle for light theme */
+          background: linear-gradient(120deg, 
+            rgba(255, 255, 255, 0.8) 0%, 
+            rgba(232, 110, 37, 0.05) 25%, 
+            rgba(255, 255, 255, 0.9) 50%, 
+            rgba(232, 110, 37, 0.05) 75%, 
+            rgba(255, 255, 255, 0.8) 100%
+          );
+          background-size: 200% 200%;
+          animation: aurora-shift 8s linear infinite;
+          
+          backdrop-filter: blur(28px);
+          -webkit-backdrop-filter: blur(28px);
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          border-top: 1px solid rgba(255, 255, 255, 0.8);
+          border-bottom: 1px solid rgba(0,0,0,0.1);
           border-radius: 9999px;
           padding: 6px 6px 6px 24px;
-          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1);
-          gap: 24px; /* Perfectly equal spacing between all main elements */
+          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 1);
+          gap: 24px;
           transition: all 0.3s ease;
+        }
+
+        @keyframes aurora-shift {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
 
         /* Search Bar Styles */
         .nav-search-wrapper {
           display: flex;
           align-items: center;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          background: rgba(0, 0, 0, 0.04);
+          border: 1px solid rgba(0, 0, 0, 0.08);
           border-radius: 9999px;
           padding: 8px 20px;
           gap: 12px;
           min-width: 260px;
           transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          box-shadow: inset 0 1px 2px rgba(0,0,0,0.2);
+          box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
         }
 
         .nav-search-wrapper:hover {
-          background: rgba(255, 255, 255, 0.08);
-          border-color: rgba(255, 255, 255, 0.2);
+          background: rgba(0, 0, 0, 0.06);
+          border-color: rgba(0, 0, 0, 0.12);
         }
 
         .nav-search-wrapper:focus-within {
-          background: rgba(0, 0, 0, 0.3);
+          background: #ffffff;
           border-color: #e86e25;
-          box-shadow: 0 0 15px rgba(232, 110, 37, 0.2), inset 0 1px 2px rgba(0,0,0,0.4);
+          box-shadow: 0 0 15px rgba(232, 110, 37, 0.15), inset 0 1px 2px rgba(0,0,0,0.05);
           transform: translateY(-1px);
+        }
+
+        /* Continuous Color highlight on search icon */
+        .search-icon {
+          color: #a0aab5;
+          flex-shrink: 0;
+          animation: icon-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes icon-glow {
+          0%, 100% { color: #a0aab5; filter: drop-shadow(0 0 0px #e86e25); }
+          50% { color: #e86e25; filter: drop-shadow(0 0 4px #e86e25); }
         }
 
         .search-input {
           background: transparent;
           border: none;
           outline: none;
-          color: #ffffff;
+          color: #1f2328;
           font-size: 14px;
           width: 100%;
           font-weight: 500;
         }
 
         .search-input::placeholder {
-          color: rgba(160, 170, 181, 0.5);
-        }
-
-        .search-icon {
-          color: #a0aab5;
-          flex-shrink: 0;
+          color: rgba(31, 35, 40, 0.4);
         }
 
         .nav-links-inner {
@@ -172,7 +195,7 @@ const Home = () => {
 
         .nav-item {
           cursor: pointer;
-          color: #a0aab5;
+          color: #4d535b;
           font-weight: 600;
           font-size: 15px;
           padding: 10px 20px;
@@ -182,8 +205,9 @@ const Home = () => {
         }
 
         .nav-item:hover {
-          color: #ffffff;
-          background: rgba(255, 255, 255, 0.1);
+          color: #e86e25;
+          background: rgba(232, 110, 37, 0.1);
+          box-shadow: 0 4px 12px rgba(232, 110, 37, 0.1);
         }
         
         .nav-item:active {
@@ -195,15 +219,21 @@ const Home = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 48px; /* Matches height well */
+          width: 48px;
           height: 48px;
-          background: rgba(232, 110, 37, 0.15); /* Soft orange hint for profile button */
+          background: rgba(232, 110, 37, 0.1);
           color: #e86e25;
-          border: 1px solid rgba(232, 110, 37, 0.3);
+          border: 1px solid rgba(232, 110, 37, 0.2);
           border-radius: 50%;
           cursor: pointer;
           transition: all 0.2s ease;
           flex-shrink: 0;
+          animation: profile-breathe 6s ease-in-out infinite;
+        }
+
+        @keyframes profile-breathe {
+          0%, 100% { box-shadow: 0 0 0px rgba(232, 110, 37, 0); border-color: rgba(232, 110, 37, 0.2); }
+          50% { box-shadow: 0 0 12px rgba(232, 110, 37, 0.2); border-color: rgba(232, 110, 37, 0.5); }
         }
 
         .profile-btn:hover {
@@ -230,18 +260,18 @@ const Home = () => {
           border-radius: 12px;
           overflow: hidden;
           position: relative;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          box-shadow: 0 4px 20px rgba(0,0,0,0.06);
           display: flex;
           flex-direction: column;
           transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-          border: 1px solid #30363d;
-          background-color: #161b22;
+          border: 1px solid #d0d7de;
+          background-color: #ffffff;
         }
         
         .b2b-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-          border-color: #484f58;
+          box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+          border-color: #e86e25;
         }
 
         /* Hero Card (Takes 2 columns) */
@@ -260,7 +290,7 @@ const Home = () => {
           content: '';
           position: absolute;
           inset: 0;
-          background: linear-gradient(to top, rgba(13, 17, 23, 0.95) 0%, rgba(13, 17, 23, 0.5) 50%, rgba(13, 17, 23, 0.1) 100%);
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0) 100%);
           z-index: 1;
         }
         
@@ -363,7 +393,7 @@ const Home = () => {
           font-weight: 700;
           margin: 0 0 12px 0;
           letter-spacing: -0.3px;
-          color: #ffffff;
+          color: #1f2328;
         }
         
         .card-title.large {
@@ -376,11 +406,11 @@ const Home = () => {
           line-height: 1.5;
           margin: 0;
           max-width: 85%;
-          color: #8b949e;
+          color: #57606a;
         }
         
-        .overlay-card .card-desc {
-          color: #e6edf3;
+        .overlay-card .card-title, .overlay-card .card-desc {
+          color: #ffffff;
         }
         
         .light-card-text-container {
