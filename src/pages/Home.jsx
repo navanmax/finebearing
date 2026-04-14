@@ -772,6 +772,55 @@ const Home = () => {
             </div>
           </section>
 
+          {/* Top Selling Products Section */}
+          <section className="featured-section" style={{ marginTop: '0', paddingTop: '48px', borderTop: '1px solid #d0d7de' }}>
+            <div className="section-heading-group">
+              <div>
+                <h2 className="section-title">Top Selling Items</h2>
+                <p className="section-subtitle">Most Requested Spares This Month</p>
+              </div>
+              <div style={{ color: '#e86e25', fontWeight: '600', cursor: 'pointer', fontSize: '14px' }}>View Top Sellers →</div>
+            </div>
+
+            <div className="featured-grid">
+              {/* Top Item 1 */}
+              <div className="featured-card">
+                <div className="product-image-box" style={{ background: '#fdf3ed', color: '#e86e25' }}>SK</div>
+                <div className="product-tag">Spherical Roller</div>
+                <div className="product-name">SKF 22218-E Explorer Bearing</div>
+                <div className="product-spec">Increased Load Rating • Long Life</div>
+                <button className="quote-btn">Request Quote</button>
+              </div>
+
+              {/* Top Item 2 */}
+              <div className="featured-card">
+                <div className="product-image-box" style={{ background: '#fdf3ed', color: '#e86e25' }}>FA</div>
+                <div className="product-tag">Deep Groove</div>
+                <div className="product-name">FAG 6206-C3 High Speed Bearing</div>
+                <div className="product-spec">Optimized Internal Geometry</div>
+                <button className="quote-btn">Request Quote</button>
+              </div>
+
+              {/* Top Item 3 */}
+              <div className="featured-card">
+                <div className="product-image-box" style={{ background: '#fdf3ed', color: '#e86e25' }}>TM</div>
+                <div className="product-tag">Tapered</div>
+                <div className="product-name">Timken 30205 Single Row Bearing</div>
+                <div className="product-spec">High Radial & Axial Load Support</div>
+                <button className="quote-btn">Request Quote</button>
+              </div>
+
+              {/* Top Item 4 */}
+              <div className="featured-card">
+                <div className="product-image-box" style={{ background: '#fdf3ed', color: '#e86e25' }}>NS</div>
+                <div className="product-tag">Shielded</div>
+                <div className="product-name">NSK 6305-ZZ Shielded Ball Bearing</div>
+                <div className="product-spec">Deep Groove • Greased for Life</div>
+                <button className="quote-btn">Request Quote</button>
+              </div>
+            </div>
+          </section>
+
         </main>
       </div>
     </div>
