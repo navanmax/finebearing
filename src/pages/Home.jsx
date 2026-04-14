@@ -19,21 +19,19 @@ const Home = () => {
           padding: 24px 0;
         }
 
-        /* --- Announcement Bar (Light Theme) --- */
+        /* --- Announcement Bar (Light Theme - Footer Version) --- */
         .announcement-bar {
           width: 100%;
           height: 40px;
           background: #ffffff;
-          border-top: 1px solid #d0d7de;
-          border-bottom: 2px solid #e86e25; /* Matte orange border remains for branding */
+          border-top: 2px solid #e86e25; /* Matte orange border moved to top for footer */
+          border-bottom: 1px solid #d0d7de;
           display: flex;
           align-items: center;
           overflow: hidden;
           position: relative;
           z-index: 10;
-          grid-column: span 3; /* Spans across the full grid width after hero row */
-          margin: 12px 0;
-          border-radius: 8px; /* Matching card radius slightly */
+          margin-top: 40px;
         }
 
         .ticker-track {
@@ -507,17 +505,6 @@ const Home = () => {
             </div>
           </div>
 
-          {/* New Placement: Announcement Bar After Hero Section */}
-          <div className="announcement-bar">
-            <div className="ticker-track">
-              <div className="ticker-item">
-                Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
-              </div>
-              <div className="ticker-item">
-                Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
-              </div>
-            </div>
-          </div>
 
           {/* Bottom Left: Linear Motion Systems */}
           <div className="b2b-card bottom-small-card overlay-card bottom-left-card">
@@ -574,6 +561,18 @@ const Home = () => {
           </div>
 
         </main>
+      </div>
+
+      {/* Footer Announcement Bar */}
+      <div className="announcement-bar">
+        <div className="ticker-track">
+          <div className="ticker-item">
+            Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
+          </div>
+          <div className="ticker-item">
+            Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
+          </div>
+        </div>
       </div>
     </div>
   );
