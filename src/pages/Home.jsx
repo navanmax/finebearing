@@ -19,17 +19,21 @@ const Home = () => {
           padding: 24px 0;
         }
 
-        /* --- Announcement Bar --- */
+        /* --- Announcement Bar (Light Theme) --- */
         .announcement-bar {
           width: 100%;
           height: 40px;
-          background: linear-gradient(90deg, #1f2328 0%, #0d1117 100%);
-          border-bottom: 2px solid #e86e25; /* Matte orange border */
+          background: #ffffff;
+          border-top: 1px solid #d0d7de;
+          border-bottom: 2px solid #e86e25; /* Matte orange border remains for branding */
           display: flex;
           align-items: center;
           overflow: hidden;
           position: relative;
-          z-index: 100;
+          z-index: 10;
+          grid-column: span 3; /* Spans across the full grid width after hero row */
+          margin: 12px 0;
+          border-radius: 8px; /* Matching card radius slightly */
         }
 
         .ticker-track {
@@ -46,7 +50,7 @@ const Home = () => {
         .ticker-item {
           display: flex;
           align-items: center;
-          color: #ffffff;
+          color: #1f2328;
           font-size: 13.5px;
           font-weight: 500;
           letter-spacing: 0.8px;
@@ -429,17 +433,6 @@ const Home = () => {
         }
       `}</style>
 
-      {/* Announcement Bar */}
-      <div className="announcement-bar">
-        <div className="ticker-track">
-          <div className="ticker-item">
-            Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
-          </div>
-          <div className="ticker-item">
-            Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
-          </div>
-        </div>
-      </div>
 
       {/* Top Navigation Bar */}
       <div className="navbar-container">
@@ -510,6 +503,18 @@ const Home = () => {
               <div className="light-card-text-container">
                 <h2 className="card-title">Hydraulic Systems</h2>
                 <p className="card-desc">Heavy-duty power transmission components for high-pressure environments.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* New Placement: Announcement Bar After Hero Section */}
+          <div className="announcement-bar">
+            <div className="ticker-track">
+              <div className="ticker-item">
+                Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
+              </div>
+              <div className="ticker-item">
+                Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
               </div>
             </div>
           </div>
