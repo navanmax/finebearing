@@ -38,9 +38,9 @@ const Home = () => {
           width: 94%;
           max-width: 1536px;
           display: flex;
+          justify-content: space-between; /* Evenly spaces Logo, Search, and Links/Profile */
           align-items: center;
           margin: 0 auto;
-          gap: 32px; /* Gap between Logo and Search */
         }
 
         /* Logo Section */
@@ -64,7 +64,6 @@ const Home = () => {
           display: flex;
           align-items: center;
           gap: 32px;
-          margin-left: auto; /* This pushes everything after search to the far right */
         }
 
         /* Search Bar - Simple Version */
