@@ -711,6 +711,18 @@ const Home = () => {
             </svg>
           </div>
 
+          {/* Brand Showcase Section After the 5 Boxes */}
+          <div className="brands-section">
+            <div className="brands-header">Trusted Brands We Deal In</div>
+            <div className="brands-ticker">
+              <div className="ticker-track">
+                {['SKF', 'FAG', 'TIMKEN', 'NSK', 'NTN', 'KOYO', 'NACHI', 'SKF', 'FAG', 'TIMKEN', 'NSK', 'NTN', 'KOYO', 'NACHI'].map((brand, idx) => (
+                  <div key={idx} className="brand-logo-card">{brand}</div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Featured Products Section */}
           <section className="featured-section">
             <div className="section-heading-group">
