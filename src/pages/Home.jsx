@@ -19,19 +19,22 @@ const Home = () => {
           padding: 24px 0;
         }
 
-        /* --- Announcement Bar (Light Theme - Footer Version) --- */
+        /* --- Announcement Bar (Light Theme - Content Ribbon) --- */
         .announcement-bar {
           width: 100%;
-          height: 40px;
+          height: 48px;
           background: #ffffff;
-          border-top: 2px solid #e86e25; /* Matte orange border moved to top for footer */
-          border-bottom: 1px solid #d0d7de;
+          border-top: 1px solid #d0d7de;
+          border-bottom: 2px solid #e86e25; 
           display: flex;
           align-items: center;
           overflow: hidden;
           position: relative;
           z-index: 10;
-          margin-top: 40px;
+          grid-column: span 3; /* Spans full grid width after the 5 boxes */
+          margin-top: 24px;
+          border-radius: 12px;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.03);
         }
 
         .ticker-track {
@@ -560,19 +563,19 @@ const Home = () => {
             </svg>
           </div>
 
-        </main>
-      </div>
+          {/* Announcement Bar After the 5 Boxes */}
+          <div className="announcement-bar">
+            <div className="ticker-track">
+              <div className="ticker-item">
+                Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
+              </div>
+              <div className="ticker-item">
+                Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
+              </div>
+            </div>
+          </div>
 
-      {/* Footer Announcement Bar */}
-      <div className="announcement-bar">
-        <div className="ticker-track">
-          <div className="ticker-item">
-            Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
-          </div>
-          <div className="ticker-item">
-            Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
-          </div>
-        </div>
+        </main>
       </div>
     </div>
   );
