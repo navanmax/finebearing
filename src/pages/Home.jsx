@@ -19,44 +19,193 @@ const Home = () => {
           padding: 12px 0;
         }
 
-        /* --- Announcement Bar (Light Theme - Content Ribbon) --- */
-        .announcement-bar {
+        /* --- Brand Showcase Section --- */
+        .brands-section {
           width: 100%;
-          height: 48px;
           background: #ffffff;
           border-top: 1px solid #d0d7de;
           border-bottom: 2px solid #e86e25; 
           display: flex;
-          align-items: center;
+          flex-direction: column;
+          justify-content: center;
           overflow: hidden;
           position: relative;
           z-index: 10;
-          grid-column: span 3; /* Spans full grid width after the 5 boxes */
-          margin-top: 12px;
+          grid-column: span 3;
+          margin-top: 20px;
           border-radius: 12px;
-          box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+          box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+          padding: 40px 0; /* Increased vertical padding */
+        }
+
+        .brands-header {
+          text-align: center;
+          font-size: 15px; /* Slightly larger */
+          font-weight: 700;
+          color: #57606a;
+          letter-spacing: 3px; /* More emphasis */
+          margin-bottom: 28px;
+          text-transform: uppercase;
+        }
+
+        .brands-ticker {
+          display: flex;
+          overflow: hidden;
+          position: relative;
         }
 
         .ticker-track {
           display: flex;
           white-space: nowrap;
-          animation: scroll 40s linear infinite;
+          animation: scroll 30s linear infinite;
           width: fit-content;
+          gap: 40px;
+          padding-left: 40px;
         }
 
-        .announcement-bar:hover .ticker-track {
+        .brands-section:hover .ticker-track {
           animation-play-state: paused;
         }
 
-        .ticker-item {
+        .brand-logo-card {
           display: flex;
           align-items: center;
+          justify-content: center;
+          min-width: 190px;
+          height: 85px;
+          background: #f6f8fa;
+          border: 1px solid #d0d7de;
+          border-radius: 10px;
           color: #1f2328;
-          font-size: 13.5px;
-          font-weight: 500;
-          letter-spacing: 0.8px;
-          padding: 0 40px;
+          font-size: 34px; /* Significantly larger impact */
+          font-weight: 800;
+          letter-spacing: 5px;
+          transition: all 0.3s ease;
+          user-select: none;
+        }
+
+        .brand-logo-card:hover {
+          background: #ffffff;
+          border-color: #e86e25;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(232, 110, 37, 0.1);
+          color: #e86e25;
+        }
+
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        /* --- Featured Products Section --- */
+        .featured-section {
+          grid-column: span 3;
+          margin-top: 48px;
+          padding-bottom: 60px;
+        }
+
+        .section-heading-group {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          margin-bottom: 32px;
+          border-left: 4px solid #e86e25;
+          padding-left: 20px;
+        }
+
+        .section-title {
+          font-size: 28px;
+          font-weight: 800;
+          color: #1f2328;
+          margin: 0;
+        }
+
+        .section-subtitle {
+          font-size: 14px;
+          color: #57606a;
+          margin-top: 4px;
+        }
+
+        .featured-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+        }
+
+        .featured-card {
+          background: #ffffff;
+          border: 1px solid #d0d7de;
+          border-radius: 12px;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          transition: all 0.3s ease;
+          position: relative;
+        }
+
+        .featured-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+          border-color: #e86e25;
+        }
+
+        .product-image-box {
+          width: 100%;
+          aspect-ratio: 1/1;
+          background: #f6f8fa;
+          border-radius: 8px;
+          margin-bottom: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #d0d7de;
+          font-weight: 800;
+          font-size: 48px;
+        }
+
+        .product-tag {
+          font-size: 11px;
+          font-weight: 700;
+          color: #e86e25;
           text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 8px;
+        }
+
+        .product-name {
+          font-size: 17px;
+          font-weight: 700;
+          color: #1f2328;
+          margin-bottom: 8px;
+          line-height: 1.3;
+        }
+
+        .product-spec {
+          font-size: 13px;
+          color: #57606a;
+          margin-bottom: 20px;
+        }
+
+        .quote-btn {
+          margin-top: auto;
+          background: #f6f8fa;
+          color: #1f2328;
+          border: 1px solid #d0d7de;
+          padding: 10px;
+          border-radius: 6px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          text-align: center;
+          display: block;
+          width: 100%;
+        }
+
+        .featured-card:hover .quote-btn {
+          background: #e86e25;
+          color: #ffffff;
+          border-color: #e86e25;
         }
 
         .ticker-item span {
@@ -562,17 +711,54 @@ const Home = () => {
             </svg>
           </div>
 
-          {/* Announcement Bar After the 5 Boxes */}
-          <div className="announcement-bar">
-            <div className="ticker-track">
-              <div className="ticker-item">
-                Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
+          {/* Featured Products Section */}
+          <section className="featured-section">
+            <div className="section-heading-group">
+              <div>
+                <h2 className="section-title">Featured Selections</h2>
+                <p className="section-subtitle">Premium Industrial Spares Ready for Shipment</p>
               </div>
-              <div className="ticker-item">
-                Fast Delivery Across India <span>•</span> Genuine Products <span>•</span> Bulk Orders Available <span>•</span> Bearings, Oil Seals & Hydraulic Products <span>•</span> Trusted B2B Supplier <span>•</span> Competitive Pricing <span>•</span> Technical Support Available
+              <div style={{ color: '#e86e25', fontWeight: '600', cursor: 'pointer', fontSize: '14px' }}>View All Products →</div>
+            </div>
+
+            <div className="featured-grid">
+              {/* Product 1 */}
+              <div className="featured-card">
+                <div className="product-image-box">BE</div>
+                <div className="product-tag">Bearings</div>
+                <div className="product-name">SKF Deep Groove Ball Bearing 6205-2Z</div>
+                <div className="product-spec">Precision: P6 • High-Speed Steel</div>
+                <button className="quote-btn">Request Quote</button>
+              </div>
+
+              {/* Product 2 */}
+              <div className="featured-card">
+                <div className="product-image-box">SL</div>
+                <div className="product-tag">Oil Seals</div>
+                <div className="product-name">Double-Lip Viton Oil Seal (TC Style)</div>
+                <div className="product-spec">Temp Resistance: -40°C to 200°C</div>
+                <button className="quote-btn">Request Quote</button>
+              </div>
+
+              {/* Product 3 */}
+              <div className="featured-card">
+                <div className="product-image-box">HY</div>
+                <div className="product-tag">Hydraulics</div>
+                <div className="product-name">Parker PGP Series Gear Pump</div>
+                <div className="product-spec">Max Pressure: 250 Bar • Cast Iron</div>
+                <button className="quote-btn">Request Quote</button>
+              </div>
+
+              {/* Product 4 */}
+              <div className="featured-card">
+                <div className="product-image-box">LM</div>
+                <div className="product-tag">Linear</div>
+                <div className="product-name">HIWIN HG Series Linear Guideway</div>
+                <div className="product-spec">Self-aligning • Heavy Load Capability</div>
+                <button className="quote-btn">Request Quote</button>
               </div>
             </div>
-          </div>
+          </section>
 
         </main>
       </div>
